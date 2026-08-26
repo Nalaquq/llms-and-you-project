@@ -10,8 +10,10 @@ practices that separate them from the ones that do not:
 
 1. **Your prompts are source code.** They live in `prompts/`, they are edited
    deliberately, and their history is readable. See [`PROMPTING.md`](PROMPTING.md).
-2. **Your decisions are written as you make them.** They live in `docs/adr/`.
-   This is graded — see the [ADR guide](https://Nalaquq.github.io/llms-and-you/guides/writing-adrs/).
+2. **Your decisions are written as you make them.** Why you chose something goes
+   in `docs/adr/`; what actually changed goes in [`CHANGELOG.md`](CHANGELOG.md).
+   Both are graded — see the
+   [ADR guide](https://Nalaquq.github.io/llms-and-you/guides/writing-adrs/).
 3. **Your claims are measured.** A change that "seems better" is a guess until
    `evals/` says otherwise.
 
@@ -70,7 +72,8 @@ python -m project.main "Say hello in exactly five words."
 | `prompts/` | Your prompts, as versioned files. One per prompt, not one per project. |
 | `src/project/` | Your code. `client.py` is written for you; the rest is yours. |
 | `evals/` | Your test set. Start it in week one, not the week before it is due. |
-| `docs/adr/` | Your decision log. Graded as a primary artifact. |
+| `docs/adr/` | Your decision log — why you chose things. Graded. |
+| `CHANGELOG.md` | What changed and when. Graded alongside the ADRs. |
 | `tests/` | Ordinary tests, for the parts that are ordinary code. |
 
 Rename `src/project/` to something that describes your project, and update the

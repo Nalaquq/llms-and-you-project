@@ -129,3 +129,7 @@ of what you chose between. The alternatives are the part that gets graded, and
 they are exactly the part you cannot remember three weeks later.
 
 Template in [`docs/adr/template.md`](docs/adr/template.md).
+
+And log the change itself in [`CHANGELOG.md`](CHANGELOG.md). The ADR carries the
+reasoning; the changelog carries the order things happened in. When you write up
+the project, you will want both.

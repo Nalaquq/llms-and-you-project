@@ -29,3 +29,9 @@ up rather than a record of what you were choosing between. You will notice the
 difference the first time you try to reconstruct one.
 
 Copy [`template.md`](template.md) to `0001-your-decision.md` and start.
+
+## Not the same as the changelog
+
+Both are graded and they do not overlap. An ADR answers *why this and not that*.
+[`CHANGELOG.md`](../../CHANGELOG.md) answers *what moved, and when*. A change
+worth an ADR usually gets a changelog line too, pointing at it.
