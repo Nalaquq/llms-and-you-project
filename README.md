@@ -62,12 +62,19 @@ does not help — it stays in the history.
 python -m project.main "Say hello in exactly five words."
 ```
 
+**6. Open [`TODO.txt`](TODO.txt) and put something in it.** It is the running
+list of what the next version of your prompt has to do, kept in sections by
+where each item ends up — in the prompt, in `evals/`, in an ADR, or in a
+question for your instructor. An hour after you have the thought, you no longer
+have the thought.
+
 ---
 
 ## What is in here
 
 | Path | What it is for |
 |:---|:---|
+| `TODO.txt` | What the next version of your prompt needs to do. Start using it in week one. |
 | `PROMPTING.md` | The practices this course grades. Read this first. |
 | `prompts/` | Your prompts, as versioned files. One per prompt, not one per project. |
 | `src/project/` | Your code. `client.py` is written for you; the rest is yours. |
