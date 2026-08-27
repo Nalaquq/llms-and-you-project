@@ -21,9 +21,34 @@ practices that separate them from the ones that do not:
 
 ## Getting started
 
-**1. Make your own copy.** Use the green **Use this template** button on
-GitHub — do not fork. A fork stays linked to this repository; a template copy
-is yours.
+**1. Make your own copy, and clone it.** One command, with the
+[GitHub CLI](https://cli.github.com/) signed in:
+
+**macOS / Linux**
+
+```bash
+gh repo create llms-project \
+  --template Nalaquq/llms-and-you-project \
+  --public --clone
+cd llms-project
+```
+
+**Windows (PowerShell)**
+
+```powershell
+gh repo create llms-project `
+  --template Nalaquq/llms-and-you-project `
+  --public --clone
+cd llms-project
+```
+
+Do not fork, and do not clone this repository directly. A fork stays linked to
+this one; a direct clone points at a repository you cannot push to. `--template`
+gives you a repository that is yours, with a clean history.
+
+Prefer the website? [Create one from the
+template](https://github.com/Nalaquq/llms-and-you-project/generate), then clone
+what you made — step 2 shows how.
 
 **2. Clone it and set up an environment.**
 
