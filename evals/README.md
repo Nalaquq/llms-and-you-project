@@ -30,7 +30,15 @@ that you find out if your fix breaks something else.
 
 ## Running it
 
+**macOS / Linux**
+
 ```bash
+python evals/run_eval.py
+```
+
+**Windows (PowerShell)**
+
+```powershell
 python evals/run_eval.py
 ```
 

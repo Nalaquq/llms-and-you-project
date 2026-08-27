@@ -27,15 +27,25 @@ is yours.
 
 **2. Clone it and set up an environment.**
 
-Cloning is the same everywhere:
+Every command in this README is given twice, once for each platform, including
+where the two are identical. Use the half that matches your machine and ignore
+the other; mixing them is the most common way this goes wrong.
+
+**macOS / Linux**
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT.git
 cd YOUR-PROJECT
 ```
 
-The environment is not. Use the half that matches your machine — the two are
-not interchangeable, and mixing them is the most common way this goes wrong.
+**Windows (PowerShell)**
+
+```powershell
+git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT.git
+cd YOUR-PROJECT
+```
+
+Then the environment, which is genuinely different:
 
 **macOS / Linux**
 
@@ -92,9 +102,17 @@ If you get `AuthenticationError`, this is what is wrong. Check the key is set in
 *this* terminal: `echo $ANTHROPIC_API_KEY` on macOS and Linux,
 `echo $env:ANTHROPIC_API_KEY` on Windows.
 
-**4. Turn on the credential guard.** Once per clone:
+**4. Turn on the credential guard.** Once per clone.
+
+**macOS / Linux**
 
 ```bash
+git config core.hooksPath .githooks
+```
+
+**Windows (PowerShell)**
+
+```powershell
 git config core.hooksPath .githooks
 ```
 
@@ -102,10 +120,17 @@ This blocks a commit that contains something shaped like an API key. A key
 pushed to GitHub is scraped within minutes, and deleting it in the next commit
 does not help — it stays in the history.
 
-**5. Check that it works.** Same command on every platform, with the virtual
-environment active:
+**5. Check that it works,** with the virtual environment active.
+
+**macOS / Linux**
 
 ```bash
+python -m project.main "Say hello in exactly five words."
+```
+
+**Windows (PowerShell)**
+
+```powershell
 python -m project.main "Say hello in exactly five words."
 ```
 
