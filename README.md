@@ -27,24 +27,70 @@ is yours.
 
 **2. Clone it and set up an environment.**
 
+Cloning is the same everywhere:
+
 ```bash
 git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT.git
 cd YOUR-PROJECT
+```
 
+The environment is not. Use the half that matches your machine — the two are
+not interchangeable, and mixing them is the most common way this goes wrong.
+
+**macOS / Linux**
+
+```bash
 python3 -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**3. Set your API key.** It goes in an environment variable, never in a file.
+**Windows (PowerShell)**
 
-```bash
-export ANTHROPIC_API_KEY='sk-ant-...'      # Windows PowerShell: $env:ANTHROPIC_API_KEY='sk-ant-...'
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
 
-That export lasts until you close the terminal. To make it permanent, add the
-line to `~/.zshrc` or `~/.bashrc`. If you get `AuthenticationError`, this is
-what is wrong.
+If PowerShell says `running scripts is disabled on this system`, run this once
+in the same window and then activate again:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+Your prompt starts with `(.venv)` when it is active. Activate again every time
+you open a new terminal.
+
+**3. Set your API key.** It goes in an environment variable, never in a file.
+
+**macOS / Linux**
+
+```bash
+export ANTHROPIC_API_KEY='sk-ant-...'
+```
+
+Lasts until you close the terminal. To make it permanent, add that line to
+`~/.zshrc` or `~/.bashrc` and open a new one.
+
+**Windows (PowerShell)**
+
+```powershell
+$env:ANTHROPIC_API_KEY = 'sk-ant-...'
+```
+
+Lasts until you close the window. To make it permanent:
+
+```powershell
+[Environment]::SetEnvironmentVariable('ANTHROPIC_API_KEY', 'sk-ant-...', 'User')
+```
+
+Then open a new terminal — the one you typed it in will not see it.
+
+If you get `AuthenticationError`, this is what is wrong. Check the key is set in
+*this* terminal: `echo $ANTHROPIC_API_KEY` on macOS and Linux,
+`echo $env:ANTHROPIC_API_KEY` on Windows.
 
 **4. Turn on the credential guard.** Once per clone:
 
@@ -56,7 +102,8 @@ This blocks a commit that contains something shaped like an API key. A key
 pushed to GitHub is scraped within minutes, and deleting it in the next commit
 does not help — it stays in the history.
 
-**5. Check that it works.**
+**5. Check that it works.** Same command on every platform, with the virtual
+environment active:
 
 ```bash
 python -m project.main "Say hello in exactly five words."

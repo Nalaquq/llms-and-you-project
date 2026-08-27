@@ -23,8 +23,10 @@ if [ -n "$hits" ]; then
   echo "$hits" | sed 's/^/    /' | cut -c1-90
   echo
   echo "Nothing was committed. Remove the secret, then commit again."
-  echo "Keys belong in an environment variable:"
-  echo "    export ANTHROPIC_API_KEY='sk-ant-...'   # see the README"
+  echo "Keys belong in an environment variable, never in a file:"
+  echo "    macOS / Linux:  export ANTHROPIC_API_KEY='sk-ant-...'"
+  echo "    Windows (PS) :  \$env:ANTHROPIC_API_KEY = 'sk-ant-...'"
+  echo "  See the README."
   echo
   echo "If this is a false positive (documentation, a fake example), bypass with:"
   echo "    git commit --no-verify"
