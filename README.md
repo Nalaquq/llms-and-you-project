@@ -1,6 +1,6 @@
 # Individual Project — LLMs & You
 
-A starting point for your semester project. Clone it, rename it, and make it
+A starting point for your semester project. Copy it, rename it, and make it
 yours.
 
 This template is deliberately **empty of content and opinionated about
@@ -21,40 +21,62 @@ practices that separate them from the ones that do not:
 
 ## Getting started
 
-**1. Make your own copy, and clone it.** One command, with the
-[GitHub CLI](https://cli.github.com/) signed in:
+**You need a browser and a GitHub account. Nothing is installed.** That is the
+supported path for everything this course grades. Running the code on your own
+machine is [optional, and further down](#running-it-on-your-own-machine-optional).
 
-**macOS / Linux**
+**1. Make your own copy.** At the top of
+[this repository's page](https://github.com/Nalaquq/llms-and-you-project), press
+**Use this template**, then **Create a new repository**. If you cannot find the
+button, [this link](https://github.com/Nalaquq/llms-and-you-project/generate)
+opens the same form. Name it what you like and set it **Public**.
 
-```bash
-gh repo create llms-project \
-  --template Nalaquq/llms-and-you-project \
-  --public --clone
-cd llms-project
-```
+Do not fork. A fork stays linked to this repository; a template copy is yours,
+with a clean history that starts at your first commit.
 
-**Windows (PowerShell)**
+**2. Make your first commit, in the browser.** Open [`TODO.txt`](TODO.txt) in
+your copy, press the **pencil icon** at the top right of the file, delete the
+examples and type something of your own. Scroll down, write a real sentence in
+the commit message box, and press **Commit changes**.
 
-```powershell
-gh repo create llms-project `
-  --template Nalaquq/llms-and-you-project `
-  --public --clone
-cd llms-project
-```
+That button does exactly what `git commit` does. Every file in this repository
+can be edited the same way, and that is all the Git this course requires.
+`TODO.txt` is the running list of what the next version of your prompt has to
+do. An hour after you have the thought, you no longer have the thought.
 
-Do not fork, and do not clone this repository directly. A fork stays linked to
-this one; a direct clone points at a repository you cannot push to. `--template`
-gives you a repository that is yours, with a clean history.
+**3. Write decisions down as you make them.** Copy
+[`docs/adr/template.md`](docs/adr/template.md) into a new file in `docs/adr/`
+for each one, using **Add file → Create new file**, and add a line to
+[`CHANGELOG.md`](CHANGELOG.md) when something changes. Both are graded; the
+[ADR guide](https://Nalaquq.github.io/llms-and-you/guides/writing-adrs/) says
+what a good one contains.
 
-Prefer the website? [Create one from the
-template](https://github.com/Nalaquq/llms-and-you-project/generate), then clone
-what you made — step 2 shows how.
+**4. Keep your prompts in `prompts/`,** one file per prompt, each with the
+header [`prompts/example-classify.md`](prompts/example-classify.md) shows. A
+prompt you tried in a chat window and liked is not saved until it is a file here.
 
-**2. Clone it and set up an environment.**
+**5. Put your evaluation set in `evals/`.** The Week 7 lab notebook ends by
+downloading a file called `cases.jsonl`. Open the `evals/` folder in your copy,
+choose **Add file → Upload files**, and upload it. It replaces the five example
+cases that ship with the template, which is what you want. Add a case every time
+you find a new failure; [`evals/README.md`](evals/README.md) says why.
 
-Every command in this README is given twice, once for each platform, including
-where the two are identical. Use the half that matches your machine and ignore
-the other; mixing them is the most common way this goes wrong.
+The course's [setup guide](https://Nalaquq.github.io/llms-and-you/guides/setup/)
+walks through steps 1 and 2 with more explanation.
+
+---
+
+## Running it on your own machine — optional
+
+Skip this section and you will not miss a single graded thing. It is here for
+when you want `evals/run_eval.py` to run your whole test set against a model
+from a terminal. That takes Python, Git, and an Anthropic API key of your own.
+
+Every command below is given twice, once for each platform, including where the
+two are identical. Use the half that matches your machine and ignore the other;
+mixing them is the most common way this goes wrong.
+
+**1. Get your copy onto your machine.** Clone the repository you made above:
 
 **macOS / Linux**
 
@@ -70,7 +92,9 @@ git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT.git
 cd YOUR-PROJECT
 ```
 
-Then the environment, which is genuinely different:
+Do not clone *this* repository directly; that points at one you cannot push to.
+
+**2. Set up an environment.** This is the step that genuinely differs by platform.
 
 **macOS / Linux**
 
@@ -159,12 +183,6 @@ python -m project.main "Say hello in exactly five words."
 python -m project.main "Say hello in exactly five words."
 ```
 
-**6. Open [`TODO.txt`](TODO.txt) and put something in it.** It is the running
-list of what the next version of your prompt has to do, kept in sections by
-where each item ends up — in the prompt, in `evals/`, in an ADR, or in a
-question for your instructor. An hour after you have the thought, you no longer
-have the thought.
-
 ---
 
 ## What is in here
@@ -188,7 +206,8 @@ Rename `src/project/` to something that describes your project, and update the
 ## The rules that are not obvious
 
 **Do not put a key in your code.** Not even temporarily, not even in a file you
-plan to delete. See step 4.
+plan to delete. If you work in a terminal, turn on the credential guard in
+the optional section above.
 
 **Do not commit model output as if it were a result.** An output is evidence of
 one run. A result is what `evals/` reports across your whole test set.
